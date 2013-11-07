@@ -1,0 +1,102 @@
+* { padding: 0; margin: 0; }
+ul { list-style-type: none; }
+
+body, html {
+    /*height: 100%;*/
+}
+body {
+    background: #152a3a;
+    color: #fff;
+    font-family: Century Gothic, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+.content {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.content li {
+    float: left;
+    width: 33.3%;
+    height: 80px;
+    position: relative;
+    text-align: center;
+    z-index: 90;
+
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.content li:hover, .content li.active {
+    z-index: 100;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.content li a {
+    font-size: 20px;
+    line-height: 75px;
+    color: #fff;
+    text-decoration: none;
+    
+    -webkit-transition: font-size 300ms ease-in-out;
+    -moz-transition: font-size 300ms ease-in-out;
+    -ms-transition: font-size 300ms ease-in-out;
+    -o-transition: font-size 300ms ease-in-out;
+    transition: font-size 300ms ease-in-out;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    background: #0F212D;
+    padding: 5px;
+    color: #5B97C4;
+}
+footer li {
+    float: left;
+    margin-right: 20px;
+}
+footer li:last-child {
+    margin-right: 0;
+}
+footer a {
+    color: #95BCD9;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #5B97C4;
+    text-decoration: underline;
+}
+
+/* --------------------------- */
+/*  ==     Responsive          */
+/* --------------------------- */
+@media (max-width: 800px) {
+    .content li a {
+        font-size: 17px;
+    }
+}
+@media (max-width: 600px) {
+    .content li a {
+        font-size: 14px;
+    }
+}
