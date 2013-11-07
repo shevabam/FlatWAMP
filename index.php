@@ -4,7 +4,7 @@
  * 
  * Flat WAMP by shevarezo.fr
  * 
- * Version 1.0
+ * Version 1.1
  * 
  */
 
@@ -14,7 +14,7 @@
 /* ---------------------------- */
 $config = array();
 
-$config['version']        = '1.0';
+$config['version']        = '1.1';
 $config['github_url']     = 'https://github.com/ShevAbam/FlatWAMP';
 $config['author']         = 'shevarezo.fr';
 $config['author_website'] = 'http://www.shevarezo.fr';
@@ -96,6 +96,7 @@ function getServerInfos($file)
     if (file_exists($file))
     {
         $content = parse_ini_file($file, true);
+        preg_match("([0-9\.]+)", apache_get_version(), $getApache_version);
 
         $tab = array(
             array(
@@ -105,12 +106,12 @@ function getServerInfos($file)
             ),
             array(
                 'name' => 'PHP',
-                'data' => $content['php']['phpVersion'],
+                'data' => phpversion(),
                 'url'  => 'http://www.php.net',
             ),
             array(
                 'name' => 'Apache',
-                'data' => $content['apache']['apacheVersion'],
+                'data' => $getApache_version[0],
                 'url'  => 'http://httpd.apache.org',
             ),
             array(
