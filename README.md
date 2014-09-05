@@ -1,9 +1,9 @@
-# Flat WAMP #
+# Flat WAMP
 
 ![](https://raw.github.com/shevabam/FlatWAMP/master/screenshot-1.png)
 ![](https://raw.github.com/shevabam/FlatWAMP/master/screenshot-2.png)
 
-## Installation ##
+## Installation
 
 - Rendez-vous dans le répertoire `www` de WAMP
 - Renommez le fichier `index.php` en ce que vous voulez, pour garder une sauvegarde
@@ -17,7 +17,7 @@
 - Paste it the Flat WAMP files
 - On your browser, go to `http://localhost/` and enjoy ;)
 
-## Fonctionnement / Features ##
+## Fonctionnement / Features
 
 Les virtual hosts sont récupérés via trois méthodes :
 
@@ -46,7 +46,7 @@ You can use the **arrows on your keyboard** to navigate the virtual hosts !
 Use the `enter` key to go to the selected project !
 
 
-## Paramètres / Parameters ##
+## Paramètres / Parameters
 
 Au début du fichier `index.php` se trouve un tableau nommé `$config`. Il contient les variables de configuration du script. Voici celles que vous pouvez modifier :
  
@@ -63,3 +63,20 @@ At the beginning of the `index.php` file there is an array called `$config`. It 
 - `$config['wampConfFile']` : path to the WAMP configuration file
 - `$config['dirsToHide']` : folders to be excluded in the case of parsing the `www/` folder 
 - `$config['colors']` : list of different colors available for displaying virtual hosts
+
+
+## Changelog
+
+### v1.2 - 5 Sept 2014
+
+- Upgrade jQuery version to 2.1.1
+- Responsive improved (design and keyboard navigation)
+- Footer is now correctly positioned (always at the bottom)
+
+### v1.1 - 7 Nov 2013
+
+- Fix on retrieving Apache and PHP version
+
+### v1.0 - 7 Nov 2013
+
+- Initial version

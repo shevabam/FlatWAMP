@@ -4,7 +4,7 @@
  * 
  * Flat WAMP by shevarezo.fr
  * 
- * Version 1.1
+ * Version 1.2
  * 
  */
 
@@ -14,7 +14,7 @@
 /* ---------------------------- */
 $config = array();
 
-$config['version']        = '1.1';
+$config['version']        = '1.2';
 $config['github_url']     = 'https://github.com/ShevAbam/FlatWAMP';
 $config['author']         = 'shevarezo.fr';
 $config['author_website'] = 'http://www.shevarezo.fr';
@@ -67,7 +67,7 @@ function generateColor($colors, $nb = 1, $colorsHisto = array())
         if (count($colorsHisto) == 8)
             $colorsHisto = array_slice($colorsHisto, 1);
 
-        // Diff between full colors array and the last five colors used
+        // Diff between full colors array and the last height colors used
         $colors_diff = array_diff($colors, $colorsHisto);
         $colors_diff = array_values($colors_diff);
 
@@ -293,7 +293,7 @@ $serverInfos = getServerInfos($config['wampConfFile']);
     <meta charset="utf-8">
     <title><?= $config['title']; ?></title>
     <link rel="stylesheet" href="flatwamp.css">
-    <script src="jquery-2.0.3.min.js"></script>
+    <script src="jquery-2.1.1.min.js"></script>
     <script>
     var o = {
         38: 'up',
@@ -341,7 +341,16 @@ $serverInfos = getServerInfos($config['wampConfFile']);
                 }
                 else
                 {
-                    var p = dir === 'up' ? (i - 3) : (i + 3);
+                    var width = $(window).width();
+                    
+                    if (width <= 600)
+                        var nb_elts = 1;
+                    else if (width <= 800)
+                        var nb_elts = 2;
+                    else
+                        var nb_elts = 3;
+
+                    var p = dir === 'up' ? (i - nb_elts) : (i + nb_elts);
                     $('.content li').removeClass('active').eq(p).addClass('active');
                 }
             }
@@ -352,27 +361,27 @@ $serverInfos = getServerInfos($config['wampConfFile']);
 </head>
 <body>
 
-<div class="container">
-    <ul class="content">
-        <?php foreach ($vhosts as $key => $vhost): ?>
-            <li style="background: <?= $colors[$key]; ?>;">
-                <a href="http://<?= $vhost['url']; ?>"><?= $vhost['name']; ?></a>
-            </li>
+<ul class="content">
+    <?php foreach ($vhosts as $key => $vhost): ?>
+        <li style="background: <?= $colors[$key]; ?>;">
+            <a href="http://<?= $vhost['url']; ?>"><?= $vhost['name']; ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<div class="cls"></div>
+
+<footer>
+    <ul>
+        <?php foreach ($serverInfos as $info): ?>
+            <li><a href="<?= $info['url']; ?>"><?= $info['name']; ?></a> : <?= $info['data']; ?></li>
         <?php endforeach; ?>
+
+        <li><a href="<?= $config['github_url']; ?>">Flat WAMP</a> : <?= $config['version']; ?></li>
+
+        <li style="float: right;"><a href="<?= $config['author_website']; ?>"><?= $config['author']; ?></a></li>
     </ul>
-
-    <footer>
-        <ul>
-            <?php foreach ($serverInfos as $info): ?>
-                <li><a href="<?= $info['url']; ?>"><?= $info['name']; ?></a> : <?= $info['data']; ?></li>
-            <?php endforeach; ?>
-
-            <li><a href="<?= $config['github_url']; ?>">Flat WAMP</a> : <?= $config['version']; ?></li>
-
-            <li style="float: right;"><a href="<?= $config['author_website']; ?>"><?= $config['author']; ?></a></li>
-        </ul>
-    </footer>
-</div>
+</footer>
 
 </body>
 </html>
