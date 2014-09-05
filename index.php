@@ -4,7 +4,7 @@
  * 
  * Flat WAMP by shevarezo.fr
  * 
- * Version 1.2
+ * Version 1.2.1
  * 
  */
 
@@ -14,7 +14,7 @@
 /* ---------------------------- */
 $config = array();
 
-$config['version']        = '1.2';
+$config['version']        = '1.2.1';
 $config['github_url']     = 'https://github.com/ShevAbam/FlatWAMP';
 $config['author']         = 'shevarezo.fr';
 $config['author_website'] = 'http://www.shevarezo.fr';

@@ -67,6 +67,10 @@ At the beginning of the `index.php` file there is an array called `$config`. It 
 
 ## Changelog
 
+### v1.2.1 - 5 Sept 2014
+
+- Fix on vhosts file path
+
 ### v1.2 - 5 Sept 2014
 
 - Upgrade jQuery version to 2.1.1
