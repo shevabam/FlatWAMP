@@ -164,7 +164,7 @@ function getVhosts_httpd_vhosts()
 {
     $servers = array();
 
-    $httpd_vhosts = glob('../bin/apache/Apache*/conf/extra/httpd-vhosts.conf');
+    $httpd_vhosts = glob('../bin/apache/[Aa]pache*/conf/extra/httpd-vhosts.conf');
     $filename = $httpd_vhosts[0];
 
     $file = fopen($filename, 'r');
